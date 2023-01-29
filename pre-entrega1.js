@@ -5,7 +5,7 @@ const extraccion = 12000;
 let tratamientoEscogido;
 let cuotaTratamiento;
 let tratamientos = [["ortodoncia"],["limpieza"],["extraccion"]];
-alert(`1-${tratamientos[0]}  2-${tratamientos[1]}  3-${tratamientos[2]}`);
+alert(`Hola, estos son nuestros tratamientos. 1-${tratamientos[0]}  2-${tratamientos[1]}  3-${tratamientos[2]}`);
 
 costoTratamiento = ()=>{
     tratamiento = parseInt(prompt("que opcion desea = 1 , 2 , 3"));
