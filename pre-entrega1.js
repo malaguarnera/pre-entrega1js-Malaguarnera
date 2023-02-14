@@ -1,10 +1,64 @@
-const ortodoncia = 6500;
-const limpieza = 3500;
-const extraccion = 12000;
 
-let tratamientoEscogido;
-let cuotaTratamiento;
-let tratamientos = [["ortodoncia"],["limpieza"],["extraccion"]];
+class factura{
+    constructor(arrayTratamiento = [], metodoDePago, CantidadCuotas){
+        this.arrayTratamiento = arrayTratamiento;
+    
+    }
+    mostrarCompra(){
+       
+       this.arrayTratamiento.forEach(tratamiento => {
+        tratamiento.informarNombreYPrecio();
+       });
+    }
+    calcularMontoFinal(){
+       let total = 0;
+        console.log(total);
+        this.arrayTratamiento.forEach(tratamiento => {
+          total +=  parseInt(tratamiento.precio);
+           console.log(tratamiento.precio);
+          
+           
+        });
+        console.log("usted debe =" + total);
+    }
+}
+
+
+class tratamiento{
+    constructor(nombre, precio){
+    this.nombre = nombre;
+    this.precio =parseInt( precio);
+
+}
+informarNombreYPrecio(){
+    console.log("tratamiento ="+ this.nombre + "  precio = " + this.precio+`\n`);
+}
+}
+
+const ortodoncia = new tratamiento("ortodoncia",6500);
+const limpieza = new tratamiento("limpieza",3500);
+const extraccion = new tratamiento("extraccion", 6500);
+
+let tratamientoEscogido = [];
+tratamientoEscogido.push(ortodoncia);
+tratamientoEscogido.push(limpieza);
+tratamientoEscogido.push(extraccion);
+ 
+ortodoncia.informarNombreYPrecio();
+const facturita = new factura (tratamientoEscogido, "debito", 3);
+facturita.mostrarCompra();
+facturita.calcularMontoFinal();
+console.log(isNaN(ortodoncia.precio));
+let montito = tratamientoEscogido[0].precio + tratamientoEscogido[1].precio
+
+console.log(montito);
+
+
+
+
+
+
+/*
 alert(`Hola, estos son nuestros tratamientos. 1-${tratamientos[0]}  2-${tratamientos[1]}  3-${tratamientos[2]}`);
 
 costoTratamiento = ()=>{
@@ -22,7 +76,7 @@ costoTratamiento = ()=>{
         
         switch(cuotaTratamiento){
             case 1 : 
-            alert("el precio total de tu tratamiento es de " + ortodoncia);
+            alert("el precio total de tu tratamiento es de " + tratamientos.ortodoncia);
             break;
             case 3 : 
             alert("el precio total de tu tratamiento es de "+ (ortodoncia + ((ortodoncia*20)/100)));
@@ -85,4 +139,4 @@ costoTratamiento = ()=>{
 
 
 
-costoTratamiento();
+costoTratamiento();*/
